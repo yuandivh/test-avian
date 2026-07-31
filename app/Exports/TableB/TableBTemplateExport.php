@@ -1,29 +1,26 @@
 <?php
 
-namespace App\Exports;
+namespace App\Exports\TableB;
 
-use App\Models\TableA;
+use App\Models\TableB;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class TableAExport implements FromCollection,WithHeadings
+class TableBTemplateExport implements FromCollection, WithHeadings
 {
     /**
     * @return \Illuminate\Support\Collection
     */
     public function collection()
     {
-        return TableA::select(
-            'kode_toko_baru',
-            'kode_toko_lama'
-        )->get();
+        return collect();
     }
 
     public function headings(): array
     {
         return [
-            "Kode Toko Baru",
-            "Kode Toko Lama"
+            'kode_toko',
+            'nominal_transaksi'
         ];
     }
 }

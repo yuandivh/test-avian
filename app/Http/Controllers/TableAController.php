@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Exports\TableAExport;
-use App\Exports\TableATemplateExport;
-use App\Http\Requests\TableA\StoreRequest;
+use App\Exports\TableA\TableAExport;
+use App\Exports\TableA\TableATemplateExport;
 use App\Http\Requests\TableA\StoreTableARequest;
 use App\Http\Requests\TableA\UpdateTableARequest;
-use App\Imports\TableAImport;
+use App\Imports\TableA\TableAImport;
 use App\Models\TableA;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;

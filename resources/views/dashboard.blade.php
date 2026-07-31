@@ -12,13 +12,13 @@
         <a href="{{ route('table_a.index') }}">
             <div class="bg-gray-100 hover:bg-gray-200 px-25 py-10 rounded-md border-2 border-gray-300 cursor-pointer">Table A</div>
         </a>
-        <a href="">
+        <a href="{{ route('table_b.index') }}">
             <div class="bg-gray-100 hover:bg-gray-200 px-25 py-10 rounded-md border-2 border-gray-300 cursor-pointer">Table B</div>
         </a>
-        <a href="">
+        <a href="{{ route('table_c.index') }}">
             <div class="bg-gray-100 hover:bg-gray-200 px-25 py-10 rounded-md border-2 border-gray-300 cursor-pointer">Table C</div>
         </a>
-        <a href="">
+        <a href="{{ route('table_d.index') }}">
             <div class="bg-gray-100 hover:bg-gray-200 px-25 py-10 rounded-md border-2 border-gray-300 cursor-pointer">Table D</div>
         </a>
     </div>

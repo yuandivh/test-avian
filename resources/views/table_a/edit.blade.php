@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Table A Edit</title>
 </head>
 <body>
     <div class="flex  justify-center items-center min-h-screen w-full">
         <div class="w-full max-w-md">
             <div class="font-bold text-2xl mb-5 text-center">
-                Create data for Table A
+                Edit data for Table A
             </div>
             <form action="{{ route('table_a.update',['tableaId' => $tablea->id ]) }}" method="post" class="space-y-4 mb-4">
                 @csrf
