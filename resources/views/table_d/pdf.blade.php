@@ -2,18 +2,20 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Table A</title>
+    <title>Table D</title>
 
     <style>
         table{
             width:100%;
             border-collapse:collapse;
+            table-layout: fixed;
         }
 
         th,td{
             border:1px solid black;
             padding:8px;
             text-align:left;
+            word-wrap:break-word;
         }
 
         th{
@@ -23,14 +25,14 @@
 </head>
 <body>
 
-<h2>Data Table A</h2>
+<h2>Data Table D</h2>
 
 <table>
     <thead>
         <tr>
             <th>No</th>
-            <th>Kode Toko Baru</th>
-            <th>Kode Toko Lama</th>
+            <th>Kode sales</th>
+            <th>Nama Sales</th>
         </tr>
     </thead>
 
@@ -38,8 +40,8 @@
         @foreach($data as $item)
         <tr>
             <td>{{ $loop->iteration }}</td>
-            <td>{{ $item->kode_toko_baru }}</td>
-            <td>{{ $item->kode_toko_lama }}</td>
+            <td>{{ $item->kode_sales }}</td>
+            <td>{{ $item->nama_sales }}</td>
         </tr>
         @endforeach
     </tbody>

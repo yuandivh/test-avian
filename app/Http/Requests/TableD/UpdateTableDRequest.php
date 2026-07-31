@@ -12,7 +12,7 @@ class UpdateTableDRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,6 +24,8 @@ class UpdateTableDRequest extends FormRequest
     {
         return [
             //
+            'kode_sales'=>'required|string|min:1',
+            'nama_sales'=>'required|string|max:20'
         ];
     }
 }

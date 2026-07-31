@@ -1,19 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    @vite(['resources/css/app.css','resources/js/app.js'])
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Table A</title>
-</head>
-<body>
+@extends('layout.app')
+@section('content')
     <div class="p-8">
         <div class="flex justify-evenly">
-            {{-- Back to dashboard --}}
-            <a href="{{ route('dashboard') }}">
-                <button class="px-10 py-3 bg-gray-400 hover:bg-gray-500 rounded-md text-white shadow-md cursor-pointer">Go back</button>
-            </a>
             {{-- Create --}}
             <a href="{{ route('table_a.create') }}">
                 <button class="px-10 py-3 bg-blue-400 hover:bg-blue-500 rounded-md text-white shadow-md cursor-pointer">Create</button>
@@ -51,11 +39,11 @@
         <div class="flex justify-center items-center mt-10">
             <div class="overflow-hidden border rounded-xl border-gray-300 shadow-md">
                 <table class="w-full text-md text-center table-fixed max-w-7xl">
-                    <thead class="sticky top-0 bg-neutral-100 border-b border-gray-300">
+                    <thead class="sticky top-0  border-b border-gray-300  bg-gray-200">
                         <tr>
-                            <th class="w-1/3 p-3">Kode toko baru</th>
-                            <th class="w-1/3 p-3">Kode toko lama</th>
-                            <th class="w-1/3 p-3">Action</th>
+                            <th class="w-1/3 p-3 ">Kode toko baru</th>
+                            <th class="w-1/3 p-3 ">Kode toko lama</th>
+                            <th class="w-1/3 p-3 ">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -140,5 +128,4 @@
             </form>
         </div>
     </div>
-</body>
-</html>
+@endsection

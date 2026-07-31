@@ -4,10 +4,19 @@ use App\Http\Controllers\TableAController;
 use App\Http\Controllers\TableBController;
 use App\Http\Controllers\TableCController;
 use App\Http\Controllers\TableDController;
+use App\Models\TableA;
+use App\Models\TableB;
+use App\Models\TableC;
+use App\Models\TableD;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('dashboard');
+    return view('dashboard',[
+        'tableACount'=>TableA::count(),
+        'tableBCount'=>TableB::count(),
+        'tableCCount'=>TableC::count(),
+        'tableDCount'=>TableD::count(),
+    ]);
 })->name('dashboard');
 
 // Table A

@@ -6,21 +6,24 @@ use App\Models\TableD;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class TableDTemplateExport implements FromCollection, WithHeadings
+class TableDExport implements FromCollection, WithHeadings
 {
     /**
     * @return \Illuminate\Support\Collection
     */
     public function collection()
     {
-        return collect();
+        return TableD::select(
+            'kode_sales',
+            'nama_sales'
+        )->get();
     }
 
     public function headings(): array
     {
         return [
-            'kode_sales',
-            'nama_sales'
+            "Kode sales",
+            "Nama sales"
         ];
     }
 }

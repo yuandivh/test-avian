@@ -1,21 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    @vite(['resources/css/app.css','resources/js/app.js'])
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Table A</title>
-</head>
-<body>
+@extends('layout.app')
+@section('content')
     <div class="p-8">
         <div class="flex justify-evenly">
-            {{-- Back to dashboard --}}
-            <a href="{{ route('dashboard') }}">
-                <button class="px-10 py-3 bg-gray-400 hover:bg-gray-500 rounded-md text-white shadow-md cursor-pointer">Go back</button>
-            </a>
             {{-- Create --}}
-            <a href="{{ route('table_a.create') }}">
+            <a href="{{ route('table_d.create') }}">
                 <button class="px-10 py-3 bg-blue-400 hover:bg-blue-500 rounded-md text-white shadow-md cursor-pointer">Create</button>
             </a>
             {{-- Import Excel --}}
@@ -30,7 +18,7 @@
                 </div>
             </button>
             {{-- Export Excel --}}
-            <a href="{{ route('table_a.export') }}">
+            <a href="{{ route('table_d.export') }}">
                 <button class="px-10 py-3 bg-green-600 hover:bg-green-700 rounded-md text-white shadow-md cursor-pointer">
                     <div class="flex justify-center items-center gap-2">
                         <div>
@@ -43,32 +31,32 @@
                 </button>
             </a>
             {{-- Export PDF --}}
-            <a href="{{ route('table_a.pdf') }}">
+            <a href="{{ route('table_d.pdf') }}">
                 <button class="px-10 py-3 bg-red-400 hover:bg-red-500 rounded-md text-white shadow-md cursor-pointer">Export PDF</button>
             </a>
         </div>
-        <div class="font-bold text-3xl mt-10 mb-2 text-center">Table A</div>
+        <div class="font-bold text-3xl mt-10 mb-2 text-center">Table D</div>
         <div class="flex justify-center items-center mt-10">
             <div class="overflow-hidden border rounded-xl border-gray-300 shadow-md">
                 <table class="w-full text-md text-center table-fixed max-w-7xl">
-                    <thead class="sticky top-0 bg-neutral-100 border-b border-gray-300">
+                    <thead class="sticky top-0 bg-gray-200 border-b border-gray-300">
                         <tr>
-                            <th class="w-1/3 p-3">Kode toko baru</th>
-                            <th class="w-1/3 p-3">Kode toko lama</th>
+                            <th class="w-1/3 p-3">Kode sales</th>
+                            <th class="w-1/3 p-3">Nama sales</th>
                             <th class="w-1/3 p-3">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($tablea as $data )
+                        @foreach ($tabled as $data )
                         <tr class="border-b border-gray-400">
-                            <td class="p-3">{{ $data->kode_toko_baru }}</td>
-                            <td class="p-3">{{ $data->kode_toko_lama ?? "null" }}</td>
+                            <td class="p-3 wrap-break-word">{{ $data->kode_sales }}</td>
+                            <td class="p-3">{{ $data->nama_sales }}</td>
                             <td class="p-3">
                                 <div class="flex gap-5 justify-evenly items-center">
-                                    <a href="{{ route('table_a.edit',['tableaId'=>$data->id]) }}">
+                                    <a href="{{ route('table_d.edit',['tabledId'=>$data->id]) }}">
                                         <button class="w-20 py-2 bg-yellow-400 hover:bg-yellow-500 rounded-md shadow-md text-white font-semibold cursor-pointer">Edit</button>
                                     </a>
-                                    <form action="{{ route('table_a.destroy',['tableaId'=>$data->id]) }}" method="post" class="delete-form">
+                                    <form action="{{ route('table_d.destroy',['tabledId'=>$data->id]) }}" method="post" class="delete-form">
                                         @csrf
                                         @method('delete')
                                         <button class="w-20 py-2 bg-red-400 hover:bg-red-500 rounded-md shadow-md text-white font-semibold" type="submit">Delete</button>
@@ -115,11 +103,11 @@
                     Header yang wajib ada
                 </h3>
                 <ul class="list-disc ml-5 mt-2">
-                    <li>kode_toko_baru</li>
-                    <li>kode_toko_lama</li>
+                    <li>kode_sales</li>
+                    <li>nama_sales</li>
                 </ul>
             </div>
-            <form action="{{ route('table_a.import') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('table_d.import') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <input
                     type="file"
@@ -128,7 +116,7 @@
                     accept=".xlsx,.xls"
                     >
                     <div class="flex justify-end gap-3">
-                        <a href="{{ route('table_a.export-template') }}"
+                        <a href="{{ route('table_d.export-template') }}"
                         class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 cursor-pointer">
                             Download Template
                         </a>
@@ -140,5 +128,4 @@
             </form>
         </div>
     </div>
-</body>
-</html>
+@endsection

@@ -16,7 +16,7 @@
             <form action="{{ route('table_b.update',['tablebId' => $tableb->id ]) }}" method="post" class="space-y-4 mb-4">
                 @csrf
                 @method('put')
-                <input value="{{ $tableb->kode_toko ?? old('kode_toko') }}" type="number" name="kode_toko" id="" placeholder="Kode toko baru" min="0"
+                <input value="{{ $tableb->kode_toko ?? old('kode_toko') }}" type="number" name="kode_toko" id="" placeholder="Kode toko" min="0"
                 class="border-2 w-full px-2 py-1 rounded-md
                 @error('kode_toko')
                 border-red-500
@@ -28,7 +28,7 @@
                         {{ $message }}
                     </p>
                 @enderror
-                <input value="{{ $tableb->nominal_transaksi?? old('nominal_transaksi') }}" type="number" name="nominal_transaksi" id="" placeholder="Kode toko lama" min="0"
+                <input value="{{ $tableb->nominal_transaksi?? old('nominal_transaksi') }}" type="number" name="nominal_transaksi" id="" placeholder="Nominal transaksi" min="0" step="0.01"
                 class="border-2 w-full px-2 py-1 rounded-md
                 @error('nominal_transaksi')
                 border-red-500
